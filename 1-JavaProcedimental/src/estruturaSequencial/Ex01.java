@@ -1,9 +1,11 @@
-package ex01;
+package estruturaSequencial;
 
 import java.util.Locale;
 
-public class Ex01 {
-    public static void main(String[] args) {
+public class Ex01
+{
+    public static void main (String[] args)
+    {
         String product01 = "Computer";
         String product02 = "Mouse";
 
@@ -25,5 +27,4 @@ public class Ex01 {
         Locale.setDefault(Locale.US);
         System.out.printf("US decimal point: %.3f\n", measure);
     }
-
 }
