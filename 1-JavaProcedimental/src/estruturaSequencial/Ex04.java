@@ -15,5 +15,7 @@ public class Ex04 {
 
         int num3 = -23;
         System.out.println(Math.abs(num3));
+
+        sc.close();
     }
 }

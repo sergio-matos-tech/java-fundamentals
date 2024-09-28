@@ -20,5 +20,7 @@ public class Ex01 {
             else
                 System.out.println("Não são múltiplos");
         }
+
+        leitor.close();
     }
 }

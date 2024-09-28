@@ -28,6 +28,6 @@ public class Ex02 {
                     System.out.println("Q3");
         }
 
-
+        leitor.close();
     }
 }

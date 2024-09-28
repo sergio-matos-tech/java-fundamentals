@@ -13,5 +13,7 @@ public class Ex03 {
         String string3 = sc.nextLine();
 
         System.out.printf("You entered [%d], [%s], [%s] and [%s]", num, string1, string2, string3);
+
+        sc.close();
     }
 }

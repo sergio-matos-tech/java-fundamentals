@@ -10,5 +10,7 @@ public class Ex05 {
         double raio = leitor.nextDouble();
 
         System.out.printf("Área = %.4f", Math.PI * (Math.pow(raio, 2)));
+
+        leitor.close();
     }
 }
