@@ -5,9 +5,7 @@ public class Triangle {
     public double l2;
     public double l3;
 
-    public Triangle() {
-
-    }
+    public Triangle() {}
 
     public Triangle(double l1, double l2, double l3) {
         this.l1 = l1;
