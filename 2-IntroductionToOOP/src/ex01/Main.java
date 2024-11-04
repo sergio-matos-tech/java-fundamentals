@@ -1,4 +1,5 @@
-import ex01.Triangle;
+package ex01;
+
 import java.util.Scanner;
 
 public class Main {

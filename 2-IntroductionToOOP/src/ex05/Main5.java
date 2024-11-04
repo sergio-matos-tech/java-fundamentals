@@ -1,7 +1,7 @@
 package ex05;
 import java.util.Scanner;
 
-public class Main {
+public class Main5 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("\nName of the student: ");
@@ -21,5 +21,7 @@ public class Main {
             System.out.println("** FAILED **");
             System.out.printf("Missing %.2f points", 60 - student01.finalGrade());
         }
+
+        input.close();
     }
 }
