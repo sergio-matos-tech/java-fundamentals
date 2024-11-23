@@ -24,39 +24,31 @@ public class Main {
             float wage = input.nextFloat();
             input.nextLine();
 
-            String ID;
             boolean validID = false;
-
             do {
                 System.out.print("ID (8-digit): ");
-                ID = input.nextLine();
-
-                final String currentID = ID;
+                final String ID = input.nextLine();
 
                 if (ID.length() == 8) {
                     boolean existsID = employees.stream()
-                            .anyMatch(employee -> employee.getID().equals(currentID));
+                            .anyMatch(employee -> employee.getID().equals(ID));
                     if (existsID) {
                         System.out.println("The ID " + ID + " already exists in the list. Try again!");
                     } else {
                         validID = true;
-
+                        Employee newEmployee = new Employee(ID, name, wage);
+                        employees.add(newEmployee);
                     }
                 } else {
                     System.out.println("The ID must be exactly 8 digits. Try again!");
                 }
 
-                Employee newEmployee = new Employee(ID, name, wage);
-                employees.add(newEmployee);
-
             } while (!validID);
-
-
 
             System.out.println("Employee added successfully!\n");
         }
 
-        boolean found = false;
+        boolean found;
         float percentage;
 
         do {
@@ -78,7 +70,6 @@ public class Main {
                 employeeToUpdate.increaseWage(percentage);
                 input.nextLine();
             }
-
         } while (!found);
 
         System.out.println("\nEmployees List:");
