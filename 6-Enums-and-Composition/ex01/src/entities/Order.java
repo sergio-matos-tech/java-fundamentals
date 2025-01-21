@@ -3,19 +3,22 @@ package entities;
 import entities.enums.OrderStatus;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Order {
     private Integer id;
-    private LocalDate moment;
-    private OrderStatus Status;
+    private LocalDateTime moment;
+    private OrderStatus status;
 
     public Order() {}
 
-    public Order(Integer id, OrderStatus status, LocalDate moment) {
+    public Order(Integer id, LocalDateTime moment, OrderStatus status) {
         this.id = id;
-        Status = status;
         this.moment = moment;
+        this.status = status;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -26,18 +29,18 @@ public class Order {
     }
 
     public OrderStatus getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(OrderStatus status) {
-        Status = status;
+        this.status = status;
     }
 
-    public LocalDate getMoment() {
+    public LocalDateTime getMoment() {
         return moment;
     }
 
-    public void setMoment(LocalDate moment) {
+    public void setMoment(LocalDateTime moment) {
         this.moment = moment;
     }
 
@@ -46,7 +49,7 @@ public class Order {
         return "Order{" +
                 "id=" + id +
                 ", moment=" + moment +
-                ", Status=" + Status +
+                ", status=" + status +
                 '}';
     }
 }
