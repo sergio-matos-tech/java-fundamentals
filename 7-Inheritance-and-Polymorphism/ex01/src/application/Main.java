@@ -16,7 +16,6 @@ public class Main {
         Account account3 = new SavingsAccount(1004, "Mariana", 0.0, 0.01);
 
         // DOWNCASTING
-
         BusinessAccount account4 = (BusinessAccount) account2;
         account4.loan(100);
 
@@ -31,5 +30,13 @@ public class Main {
             account5.updateBalance();
             System.out.println("Updated");
         }
+
+        Account account5 = new Account(1011, "Alex", 1000.0);
+        account5.withdraw(200);
+        System.out.println(account5.getBalance());
+
+        Account account6 = new SavingsAccount(1002, "Maria", 1000.0, 0.01);
+        account6.withdraw(200);
+        System.out.println(account6.getBalance());
     }
 }
