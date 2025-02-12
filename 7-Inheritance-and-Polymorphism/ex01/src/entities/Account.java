@@ -1,6 +1,6 @@
 package entities;
 
-public class Account {
+public abstract class Account {
 
     protected Integer number;
     protected String holder;
@@ -40,5 +40,14 @@ public class Account {
 
     public void deposit(double amount) {
         balance += amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "number=" + number +
+                ", holder='" + holder + '\'' +
+                ", balance=" + balance +
+                '}';
     }
 }
