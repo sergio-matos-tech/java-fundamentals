@@ -1,5 +1,7 @@
 package models.entities;
 
+import models.exceptions.DomainException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -11,10 +13,15 @@ public class Reservation {
 
     public Reservation() {}
 
-    public Reservation(Integer roomNumber, LocalDate checkin, LocalDate checkout) {
-        this.roomNumber = roomNumber;
-        this.checkin = checkin;
-        this.checkout = checkout;
+    public Reservation(Integer roomNumber, LocalDate checkin, LocalDate checkout) throws DomainException {
+        LocalDate dateNow = LocalDate.now();
+        if (checkin.isBefore(checkout) && checkin.isAfter(dateNow) || checkin.isEqual(dateNow)) {
+            this.checkin = checkin;
+            this.checkout = checkout;
+            this.roomNumber = roomNumber;
+        } else {
+            throw new DomainException("ERROR: Reservation dates must be of today or future dates!");
+        }
     }
     public Integer getRoomNumber() {
         return roomNumber;
@@ -44,13 +51,13 @@ public class Reservation {
         return ChronoUnit.DAYS.between(checkin, checkout);
     }
 
-    public void updateDates(LocalDate checkin, LocalDate checkout) {
+    public void updateDates(LocalDate checkin, LocalDate checkout) throws DomainException {
         LocalDate dateNow = LocalDate.now();
         if (checkin.isBefore(checkout) && checkin.isAfter(dateNow) || checkin.isEqual(dateNow)) {
             this.checkin = checkin;
             this.checkout = checkout;
         } else {
-            throw new IllegalArgumentException("ERROR: Reservation dates must be of today or future dates!");
+            throw new DomainException("ERROR: Reservation dates must be of today or future dates!");
         }
     }
 
