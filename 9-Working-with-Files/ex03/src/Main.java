@@ -14,7 +14,7 @@ public class Main {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         } 
     }
 }
