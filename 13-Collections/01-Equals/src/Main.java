@@ -12,15 +12,14 @@ public class Main {
         Collections.addAll(smartphones, smartphone1, smartphone2, smartphone3);
         System.out.println(smartphones);
 
-        smartphones.removeIf(s -> Objects.equals(s.getSerialNumber(), "1APPLE15"));
-
-
 
         System.out.println(smartphone1.equals(smartphone2));
         System.out.println(smartphone1.equals(smartphone3));
 
-        System.out.println(smartphones);
+        smartphones.removeIf(s -> s.equals(smartphone2));
 
+
+        System.out.println(smartphones);
 
     }
 }

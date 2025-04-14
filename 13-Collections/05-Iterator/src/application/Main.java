@@ -3,8 +3,6 @@ package application;
 import domain.Item;
 import domain.ShoppingCart;
 
-import javax.swing.*;
-
 public class Main {
     public static void main(String[] args) {
         ShoppingCart cart = new ShoppingCart();
@@ -20,7 +18,6 @@ public class Main {
 
         cart.printItems();
         System.out.println();
-        cart.removeItem(item2);
         cart.printItems();
     }
 }

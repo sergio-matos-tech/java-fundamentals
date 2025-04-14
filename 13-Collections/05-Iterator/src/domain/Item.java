@@ -41,7 +41,8 @@ public class Item {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Double.compare(getPrice(), item.getPrice()) == 0 && isInStock() == item.isInStock()
+        return Double.compare(getPrice(), item.getPrice()) == 0 &&
+                isInStock() == item.isInStock()
                 && Objects.equals(getName(), item.getName());
     }
 

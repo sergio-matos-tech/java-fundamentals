@@ -27,8 +27,7 @@ public class ShoppingCart {
         }
     }
 
-    public void removeItemByName(Item item, String name) {
+    public void removeItem(Item item) {
         items.removeIf(i -> i.equals(item));
     }
-
 }
