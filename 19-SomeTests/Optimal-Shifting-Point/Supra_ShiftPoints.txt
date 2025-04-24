@@ -1,0 +1,8 @@
+Optimal Shift Points for the Supra
+-----------------------------------
+
+Shift from 1 to 2 at 7500 RPM (lands at 5783 RPM)
+Shift from 2 to 3 at 7300 RPM (lands at 5998 RPM)
+Shift from 3 to 4 at 7150 RPM (lands at 6000 RPM)
+Shift from 4 to 5 at 7100 RPM (lands at 5991 RPM)
+Shift from 5 to 6 at 7000 RPM (lands at 5992 RPM)
