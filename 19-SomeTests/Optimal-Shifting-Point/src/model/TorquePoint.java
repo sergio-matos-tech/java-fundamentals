@@ -1,5 +1,8 @@
 package model;
 
+import lombok.Getter;
+
+@Getter
 public class TorquePoint {
     private int rpm;
     private double torque;
@@ -9,16 +12,8 @@ public class TorquePoint {
         this.torque = torque;
     }
 
-    public int getRpm() {
-        return rpm;
-    }
-
     public void setRpm(int rpm) {
         this.rpm = rpm;
-    }
-
-    public double getTorque() {
-        return torque;
     }
 
     public void setTorque(double torque) {

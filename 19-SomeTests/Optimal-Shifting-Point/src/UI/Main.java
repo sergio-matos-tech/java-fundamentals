@@ -1,6 +1,6 @@
 package UI;
 
-import model.ShiftPointCalculator;
+import service.ShiftPointCalculator;
 import model.TorquePoint;
 
 import java.io.BufferedWriter;
@@ -18,10 +18,10 @@ public class Main {
                 new TorquePoint(3000, 48),
                 new TorquePoint(4000, 55),
                 new TorquePoint(5000, 62),
-                new TorquePoint(5500, 65),  // Peak torque
-                new TorquePoint(6000, 65),  // Peak torque
+                new TorquePoint(5500, 65), 
+                new TorquePoint(6000, 65),
                 new TorquePoint(6500, 56),
-                new TorquePoint(7000, 51),  // Peak power
+                new TorquePoint(7000, 51),
                 new TorquePoint(7500, 46),
                 new TorquePoint(8000, 40)
         );
@@ -39,7 +39,6 @@ public class Main {
 
         for (int i = 0; i < gears.length - 1; i++) {
             int shiftRPM = calculator.findOptimalShiftRPM(gears[i], gears[i + 1]);
-            int rpmAfterShift = (int) Math.round(shiftRPM * (gears[i+1]/gears[i]));
 
             System.out.printf("Shift from %d to %d at %d RPM\n",
                     i + 1, i + 2, shiftRPM);
@@ -49,14 +48,12 @@ public class Main {
         String fileName = carName.replaceAll("\\s+", "") + "_ShiftPoints.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            // Write header
             writer.write("Optimal Shift Points for the " + carName);
             writer.newLine();
             writer.write("-----------------------------------");
             writer.newLine();
             writer.newLine();
 
-            // Write shift points
             for (int i = 0; i < gears.length - 1; i++) {
                 int shiftRPM = calculator.findOptimalShiftRPM(gears[i], gears[i + 1]);
                 int rpmAfterShift = (int) Math.round(shiftRPM * (gears[i+1]/gears[i]));
