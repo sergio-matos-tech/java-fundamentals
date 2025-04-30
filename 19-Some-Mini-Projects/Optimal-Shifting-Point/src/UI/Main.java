@@ -18,7 +18,7 @@ public class Main {
                 new TorquePoint(3000, 48),
                 new TorquePoint(4000, 55),
                 new TorquePoint(5000, 62),
-                new TorquePoint(5500, 65), 
+                new TorquePoint(5500, 65),
                 new TorquePoint(6000, 65),
                 new TorquePoint(6500, 56),
                 new TorquePoint(7000, 51),
