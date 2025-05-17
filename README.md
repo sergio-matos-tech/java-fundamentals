@@ -4,7 +4,7 @@ This repository contains my notes, exercises, and mini-projects developed during
 
 ## 📚 About the Course
 
-The **"Java Completo"** course is a comprehensive guide to Java programming, covering topics from beginner to advanced levels. It emphasizes Object-Oriented Programming (OOP) and practical projects to build a solid foundation in Java development. The course is designed for students, professionals, and enthusiasts who want to learn Java for academic or professional purposes.
+The **"Java Completo"** and **Maratona Java** courses are a comprehensive guide to Java programming, covering topics from beginner to advanced levels. It emphasizes Object-Oriented Programming (OOP) and practical projects to build a solid foundation in Java development. The courses are designed for students, professionals, and enthusiasts who want to learn Java for academic or professional purposes.
 
 ### 🧠 What I Learned
 - **Java Basics**: Syntax, data types, control structures, and more.
@@ -19,7 +19,6 @@ The **"Java Completo"** course is a comprehensive guide to Java programming, cov
 - **Java**: JDK 17+ (as recommended in the course)
 - **Database**: MySQL, MongoDB
 - **Frameworks**: Spring Boot, Hibernate
-- **GUI**: JavaFX
 - **IDE**: IntelliJ IDEA
 - **Build Tools**: Maven
 
@@ -31,9 +30,8 @@ The **"Java Completo"** course is a comprehensive guide to Java programming, cov
 
 ## 🎯 Projects Highlights
 Some of the notable projects in this course:
-- **Banking System**: A console-based application implementing OOP principles.
+- **Chess**: A console-based chess application implementing OOP principles.
 - **E-commerce Application**: Using Spring Boot and Hibernate for backend development.
-- **Task Management System**: A GUI-based app built with JavaFX.
 
 ## 💡 Why Did I Choose This Course?
 - Enhance my existing Java knowledge.
@@ -44,6 +42,7 @@ Some of the notable projects in this course:
 ## 🔗 Links
 - [Course on Udemy](https://www.udemy.com/course/java-curso-completo/)
 - [Professor Nélio Alves](https://www.udemy.com/user/nelio-alves/)
+- [Maratona Java](https://www.youtube.com/playlist?list=PL62G310vn6nFIsOCC0H-C2infYgwm8SWW)
 
 ---
 
