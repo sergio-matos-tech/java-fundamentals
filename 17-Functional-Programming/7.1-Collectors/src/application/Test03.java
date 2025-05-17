@@ -19,7 +19,7 @@ public class Test03 {
         System.out.println("Sum stream iterate parallel ");
 
         long begin = System.currentTimeMillis();
-        long result = Stream.iterate(1L, i -> + i + 1).limit(num).parallel()
+        long result = Stream.iterate(1L, i -> i + 1).limit(num).parallel()
                 .reduce(0L, Long::sum);
         long end = System.currentTimeMillis();
 
