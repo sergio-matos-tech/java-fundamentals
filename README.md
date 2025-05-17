@@ -1,4 +1,4 @@
-# Java Completo - Professor Nélio Alves
+# Java Fundamentals
 
 This repository contains my notes, exercises, and mini-projects developed during the **"Java COMPLETO: Programação Orientada a Objetos + Projetos"** course by [Professor Nélio Alves](https://www.udemy.com/user/nelio-alves/) on [Udemy](https://www.udemy.com/course/java-curso-completo/).
 
