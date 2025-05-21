@@ -28,12 +28,14 @@ class ThreadExample extends Thread {
 }
 
 public class App {
-
     public static void main(String[] args) {
         ThreadExample t1 = new ThreadExample('a');
         ThreadExample t2 = new ThreadExample('b');
         ThreadExample t3 = new ThreadExample('c');
         ThreadExample t4 = new ThreadExample('d');
+
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(ThreadExample.class.getName());
 
         t4.setPriority(Thread.MAX_PRIORITY);
         t1.start();
