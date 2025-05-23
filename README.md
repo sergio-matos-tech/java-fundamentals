@@ -1,10 +1,10 @@
 # Java Fundamentals
 
-This repository contains my notes, exercises, and mini-projects developed during the **"Java COMPLETO: Programação Orientada a Objetos + Projetos"** course by [Professor Nélio Alves](https://www.udemy.com/user/nelio-alves/) on [Udemy](https://www.udemy.com/course/java-curso-completo/) and **Maratona Java** [Maratona Java](https://www.youtube.com/playlist?list=PL62G310vn6nFIsOCC0H-C2infYgwm8SWW).
+This repository contains my notes, exercises, and mini-projects developed during the **"Java COMPLETO: Programação Orientada a Objetos + Projetos"** course by [Professor Nélio Alves](https://www.udemy.com/user/nelio-alves/) on [Udemy](https://www.udemy.com/course/java-curso-completo/), **Maratona Java** [Maratona Java](https://www.youtube.com/playlist?list=PL62G310vn6nFIsOCC0H-C2infYgwm8SWW) and **loiane.training** [Loiane Groner](https://www.youtube.com/@loianegroner/playlists).
 
 ## 📚 About the Courses
 
-The **"Java Completo"** and **Maratona Java** courses are a comprehensive guide to Java programming, covering topics from beginner to advanced levels. It emphasizes Object-Oriented Programming (OOP) and practical projects to build a solid foundation in Java development. The courses are designed for students, professionals, and enthusiasts who want to learn Java for academic or professional purposes.
+The **"Java Completo"**, **Loiane Training** and **Maratona Java** courses are a comprehensive guide to Java programming, covering topics from beginner to advanced levels. It emphasizes Object-Oriented Programming (OOP) and practical projects to build a solid foundation in Java development. The courses are designed for students, professionals, and enthusiasts who want to learn Java for academic or professional purposes.
 
 ### 🧠 What I Learned
 - **Java Basics**: Syntax, data types, control structures, and more.
