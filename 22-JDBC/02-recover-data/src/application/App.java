@@ -20,8 +20,8 @@ public class App {
             resultSet = statement.executeQuery("select * from department");
 
             while (resultSet.next()) {
-                System.out.println(resultSet.getInt("Id") + ", " + resultSet.getString("Name"));
-
+                System.out.println(resultSet.getInt("Id") + ", " +
+                        resultSet.getString("Name"));
             }
 
         } catch (SQLException e) {
@@ -31,7 +31,5 @@ public class App {
             DB.closeStatement(statement);
             DB.closeConnection();
         }
-
-
     }
 }
