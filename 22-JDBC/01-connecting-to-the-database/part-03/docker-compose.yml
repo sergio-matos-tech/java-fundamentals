@@ -1,0 +1,14 @@
+version: '2.4'
+services:
+  db:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: kakaroto
+    ports:
+      - "3306:3306"
+    volumes:
+      - container_test_data:/var/lib/mysql
+
+volumes:
+  container_test_data:
