@@ -1,12 +1,19 @@
 package org.application;
 
 
-import org.connection.ConnectionFactory;
+import org.domain.Producer;
+import org.repository.ProducerRepository;
 
 public class App {
     public static void main(String[] args) {
 
-        ConnectionFactory.getConnection();
+        Producer producer = Producer.Builder
+                .builder()
+                .name("NHK")
+                .build();
+
+        ProducerRepository.save(producer);
+
 
 
     }

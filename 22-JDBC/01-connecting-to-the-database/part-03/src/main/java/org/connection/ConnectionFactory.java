@@ -12,14 +12,9 @@ public class ConnectionFactory {
         String username = "root";
         String password = "kakaroto";
         try {
-            Connection connection = DriverManager.getConnection(url, username, password);
-            System.out.println(connection);
+            return DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
-        return null;
     }
-
 }
