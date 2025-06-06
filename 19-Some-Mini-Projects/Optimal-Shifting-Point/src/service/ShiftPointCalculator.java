@@ -5,11 +5,12 @@ import model.TorquePoint;
 
 import java.util.List;
 
+
 public class ShiftPointCalculator {
     private final List<TorquePoint> torqueCurve;
     private final double finalDrive;
     private static final int MIN_RPM = 3000;
-    private static final int MAX_RPM = 7500;
+    private static final int MAX_RPM  = 7500;
     private static final int RPM_STEP = 50;
 
     public ShiftPointCalculator(List<TorquePoint> torqueCurve, double finalDrive) {

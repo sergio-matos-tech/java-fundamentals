@@ -1,20 +1,16 @@
 package org.application;
 
 
-import org.domain.Producer;
-import org.repository.ProducerRepository;
+import org.connection.ConnectionFactory;
+
+import java.sql.Connection;
 
 public class App {
     public static void main(String[] args) {
 
-        Producer producer = Producer.Builder
-                .builder()
-                .name("NHK")
-                .build();
+        Connection connection = ConnectionFactory.getConnection();
 
-        ProducerRepository.save(producer);
-
-
+        System.out.println(connection);
 
     }
 }
