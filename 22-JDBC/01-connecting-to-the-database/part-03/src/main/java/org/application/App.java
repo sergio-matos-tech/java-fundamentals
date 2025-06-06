@@ -1,16 +1,19 @@
 package org.application;
 
-
 import org.connection.ConnectionFactory;
-
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class App {
     public static void main(String[] args) {
 
-        Connection connection = ConnectionFactory.getConnection();
-
-        System.out.println(connection);
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            System.out.println("Connection successful!");
+            System.out.println(connection);
+        } catch (RuntimeException | SQLException e) {
+            System.err.println("Failed to connect to the database.");
+            System.out.println(e.getMessage());
+        }
 
     }
 }
