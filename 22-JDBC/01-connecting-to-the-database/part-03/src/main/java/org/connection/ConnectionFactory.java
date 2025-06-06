@@ -8,9 +8,9 @@ public class ConnectionFactory {
     // java.sql -> Connection, Statement, ResultSet, DriverManager
 
     public static Connection getConnection() {
-        String url = "jdbc:mysql://localhost:3306/anime_store";
+        String url = "jdbc:mysql://localhost:3308/anime_store"; // <-- Correct Port
         String username = "root";
-        String password = "kakaroto";
+        String password = "secret";
         try {
             return DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
