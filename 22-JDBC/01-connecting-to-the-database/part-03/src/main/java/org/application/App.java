@@ -1,6 +1,9 @@
 package org.application;
 
 import org.connection.ConnectionFactory;
+import org.domain.Producer;
+import org.repository.ProducerRepository;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -15,5 +18,10 @@ public class App {
             System.out.println(e.getMessage());
         }
 
+        Producer producer = Producer.Builder.builder()
+                .name("NHK")
+                .build();
+
+        ProducerRepository.save(producer);
     }
 }

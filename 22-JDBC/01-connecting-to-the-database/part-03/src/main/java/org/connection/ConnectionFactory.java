@@ -8,9 +8,11 @@ public class ConnectionFactory {
     // java.sql -> Connection, Statement, ResultSet, DriverManager
 
     public static Connection getConnection() {
+
         String url = "jdbc:mysql://localhost:3308/anime_store";
         String username = "root";
         String password = "secret";
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(url, username, password);
@@ -19,6 +21,5 @@ public class ConnectionFactory {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
