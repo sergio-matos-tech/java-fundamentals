@@ -19,7 +19,7 @@ public class App {
         }
 
         Producer producer = Producer.builder()
-                .name("Studio Deen")
+                .name("Wit Studio")
                 .build();
         ProducerRepository.save(producer);
     }
