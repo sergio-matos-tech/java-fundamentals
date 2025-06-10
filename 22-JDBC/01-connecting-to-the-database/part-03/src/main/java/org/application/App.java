@@ -18,10 +18,9 @@ public class App {
             System.out.println(e.getMessage());
         }
 
-        Producer producer = Producer.Builder.builder()
-                .name("NHK")
+        Producer producer = Producer.builder()
+                .name("Studio Deen")
                 .build();
-
         ProducerRepository.save(producer);
     }
 }
