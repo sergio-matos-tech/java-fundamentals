@@ -1,12 +1,14 @@
 package org.application;
 
+import lombok.extern.log4j.Log4j2;
 import org.connection.ConnectionFactory;
 import org.domain.Producer;
-import org.repository.ProducerRepository;
+import org.service.ProducerService;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
+@Log4j2
 public class App {
     public static void main(String[] args) {
 
@@ -18,9 +20,17 @@ public class App {
             System.out.println(e.getMessage());
         }
 
+
+        /*
+
         Producer producer = Producer.builder()
-                .name("Wit Studio")
+                .name("Karleto")
                 .build();
-        ProducerRepository.save(producer);
+        ProducerService.save(producer);
+
+        ProducerService.delete(14);
+
+        */
+
     }
 }
