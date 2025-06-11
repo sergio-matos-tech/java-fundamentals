@@ -32,5 +32,14 @@ public class App {
 
         */
 
+
+        Producer producerToUpdate = Producer
+                .builder()
+                .id(1)
+                .name("MadHouse")
+                .build();
+
+        ProducerService.update(producerToUpdate);
+
     }
 }

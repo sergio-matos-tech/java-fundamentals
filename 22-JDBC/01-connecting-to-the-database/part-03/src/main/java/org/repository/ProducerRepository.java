@@ -19,11 +19,11 @@ public class ProducerRepository {
         try (Connection connection = ConnectionFactory.getConnection();
              Statement statement = connection.createStatement()) {
             int rowsAffected = statement.executeUpdate(sql);
-            log.info("Database rows affected {}\nInserted producer: {}", rowsAffected, producer.getName());
+            log.info("Database rows affected {}\nInserted producer: '{}'", rowsAffected, producer.getName());
 
 
         } catch (SQLException e) {
-            log.error("Error while trying to insert producer {}! ", producer.getName());
+            log.error("Error while trying to insert producer '{}'! ", producer.getName());
             throw new RuntimeException(e);
         }
     }
@@ -35,12 +35,34 @@ public class ProducerRepository {
         try (Connection connection = ConnectionFactory.getConnection();
              Statement statement = connection.createStatement()) {
             int rowsAffected = statement.executeUpdate(sql);
-            log.info("Database rows affected {}\nDeleted producer with id: {}", rowsAffected, id);
+            log.info("Database rows affected {}\nDeleted producer with id: '{}'", rowsAffected, id);
 
 
         } catch (SQLException e) {
-            log.error("Error trying to insert producer with id {}! ", id);
+            //noinspection LoggingSimilarMessage
+            log.error("Error trying to insert producer with id '{}'! ", id);
             throw new RuntimeException(e);
         }
+    }
+
+    public static void update(Producer producer) {
+        String sql = "UPDATE anime_store.producer SET name='%s' WHERE id='%d';"
+                .formatted(producer.getName(), producer.getId());
+
+        try (Connection connection = ConnectionFactory.getConnection();
+             Statement statement = connection.createStatement()) {
+            int rowsAffected = statement.executeUpdate(sql);
+            log.info("Database rows affected {}\nUpdated producer with id: '{}'", rowsAffected, producer.getId());
+
+
+        } catch (SQLException e) {
+            if (log.isErrorEnabled()) {
+                log.error("Error trying to insert producer with id '{}'! ", producer.getId());
+            }
+            throw new RuntimeException(e);
+        }
+
+
+
     }
 }
