@@ -5,8 +5,11 @@ import org.connection.ConnectionFactory;
 import org.domain.Producer;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Log4j2
@@ -61,8 +64,35 @@ public class ProducerRepository {
             }
             throw new RuntimeException(e);
         }
+    }
+
+
+    public static List<Producer> findAll() {
+        log.info("Finding all producers");
+        String sql = "SELECT id, name FROM anime_store.producer; ";
+        List<Producer> producerList = new ArrayList<>();
+
+        try (Connection connection = ConnectionFactory.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(sql)) {
+
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                Producer producer = Producer.builder().id(id).name(name).build();
+                producerList.add(producer);
+            }
 
 
 
+        } catch (SQLException e) {
+            if (log.isErrorEnabled()) {
+                log.error("Error trying to find all producers ! ");
+            }
+            throw new RuntimeException(e);
+        }
+
+        return producerList;
     }
 }

@@ -7,6 +7,7 @@ import org.service.ProducerService;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 @Log4j2
 public class App {
@@ -33,13 +34,20 @@ public class App {
         */
 
 
-        Producer producerToUpdate = Producer
+        /* Producer producerToUpdate = Producer
                 .builder()
                 .id(1)
                 .name("MadHouse")
                 .build();
 
         ProducerService.update(producerToUpdate);
+        */
+
+
+        List<Producer> producers = ProducerService.findAll();
+        log.info("Producers found:\n'{}'", producers);
+        producers.forEach(System.out::println);
+
 
     }
 }

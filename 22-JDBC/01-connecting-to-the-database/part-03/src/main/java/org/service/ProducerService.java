@@ -3,8 +3,9 @@ package org.service;
 import org.domain.Producer;
 import org.repository.ProducerRepository;
 
-public class ProducerService {
+import java.util.List;
 
+public class ProducerService {
 
     public static void save(Producer producer) {
         ProducerRepository.save(producer);
@@ -21,12 +22,13 @@ public class ProducerService {
 
     }
 
+    public static List<Producer> findAll() {
+        return ProducerRepository.findAll();
+    }
 
     private static void validateId(Integer id) {
         if (id == null || id <= 0) {
             throw new IllegalArgumentException("Invalid id");
         }
     }
-
-
 }
