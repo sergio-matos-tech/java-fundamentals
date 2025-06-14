@@ -69,7 +69,14 @@ public class ProducerRepository {
 
     public static List<Producer> findAll() {
         log.info("Finding all producers");
-        String sql = "SELECT id, name FROM anime_store.producer; ";
+        return findByName("");
+    }
+
+    public static List<Producer> findByName(String name) {
+
+        log.info("Finding producer of name '{}'", name);
+        String sql = "SELECT * FROM anime_store.producer WHERE name LIKE '%%%s%%';".formatted(name);
+
         List<Producer> producerList = new ArrayList<>();
 
         try (Connection connection = ConnectionFactory.getConnection();
@@ -79,8 +86,8 @@ public class ProducerRepository {
 
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
-                Producer producer = Producer.builder().id(id).name(name).build();
+                String name1 = rs.getString("name");
+                Producer producer = Producer.builder().id(id).name(name1).build();
                 producerList.add(producer);
             }
 
@@ -88,11 +95,16 @@ public class ProducerRepository {
 
         } catch (SQLException e) {
             if (log.isErrorEnabled()) {
-                log.error("Error trying to find all producers ! ");
+                log.error("Error trying to find the producer '{}' ! ", name);
             }
             throw new RuntimeException(e);
         }
 
         return producerList;
+
+
     }
+
+
+
 }
