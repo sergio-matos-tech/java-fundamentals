@@ -43,11 +43,15 @@ public class App {
         ProducerService.update(producerToUpdate);
         */
 
+        /*
 
         List<Producer> producers = ProducerService.findAll();
         log.info("Producers found:\n'{}'", producers);
         producers.forEach(System.out::println);
 
+        */
+
+        ProducerService.showProducerMetaData();
 
     }
 }

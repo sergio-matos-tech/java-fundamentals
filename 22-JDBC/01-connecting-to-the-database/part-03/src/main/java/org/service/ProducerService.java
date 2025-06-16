@@ -19,8 +19,9 @@ public class ProducerService {
     public static void update(Producer producer) {
         validateId(producer.getId());
         ProducerRepository.update(producer);
-
     }
+
+    public static void showProducerMetaData() {ProducerRepository.showProducerMetaData();}
 
     public static List<Producer> findAll() {
         return ProducerRepository.findAll();
