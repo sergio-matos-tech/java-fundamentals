@@ -111,7 +111,6 @@ public class ProducerRepository {
              ResultSet rs = statement.executeQuery(sql)) {
 
             ResultSetMetaData metaData = rs.getMetaData();
-            rs.next();
             int columnCount = metaData.getColumnCount();
             log.info("Columns count: '{}'", columnCount);
             for (int i = 1; i <=columnCount ; i++) {
@@ -124,6 +123,41 @@ public class ProducerRepository {
         } catch (SQLException e) {
             if (log.isErrorEnabled()) {
                 log.error("Error trying to find the producer ");
+            }
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void showDriverMetaData() {
+
+        log.info("Showing Driver metadata");
+
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            DatabaseMetaData metaData = connection.getMetaData();
+            if (metaData.supportsResultSetType(ResultSet.TYPE_FORWARD_ONLY)) {
+                log.info("Supports TYPE_FORWARD_ONLY");
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+                    log.info("And Supports CONCUR_UPDATABLE");
+                }
+            }
+            if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
+                log.info("Supports TYPE_SCROLL_INSENSITIVE");
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+                    log.info("And Supports CONCUR_UPDATABLE");
+                }
+            }
+            if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
+                log.info("Supports TYPE_SCROLL_SENSITIVE");
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+                    log.info("And Supports CONCUR_UPDATABLE");
+                }
+            }
+
+
+
+        } catch (SQLException e) {
+            if (log.isErrorEnabled()) {
+                log.error("Error trying to find driver MetaData ");
             }
             throw new RuntimeException(e);
         }

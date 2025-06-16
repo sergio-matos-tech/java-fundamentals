@@ -21,6 +21,8 @@ public class ProducerService {
         ProducerRepository.update(producer);
     }
 
+    public static void showDriverMetaData() {ProducerRepository.showDriverMetaData();}
+
     public static void showProducerMetaData() {ProducerRepository.showProducerMetaData();}
 
     public static List<Producer> findAll() {
