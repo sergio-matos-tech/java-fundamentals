@@ -162,4 +162,40 @@ public class ProducerRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public static void showTypeScrollWorking() {
+
+        String sql = "SELECT * FROM anime_store.producer; ";
+
+        try (Connection connection = ConnectionFactory.getConnection();
+             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet rs = statement.executeQuery(sql)) {
+
+            if (rs.first()) {
+                Producer producer = Producer.builder()
+                        .id(rs.getInt("id"))
+                        .name(rs.getString("name"))
+                        .build();
+
+                log.info("First row: '{}' | '{}'", rs.getRow(), producer);
+            }
+
+
+            if (rs.last()) {
+                Producer producer = Producer.builder()
+                        .id(rs.getInt("id"))
+                        .name(rs.getString("name"))
+                        .build();
+
+                log.info("Last row: '{}' | '{}'", rs.getRow(), producer);
+            }
+
+
+        } catch (SQLException e) {
+            if (log.isErrorEnabled()) {
+                log.error("Error trying to find all producers ");
+            }
+            throw new RuntimeException(e);
+        }
+    }
 }

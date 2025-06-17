@@ -25,6 +25,8 @@ public class ProducerService {
 
     public static void showProducerMetaData() {ProducerRepository.showProducerMetaData();}
 
+    public static void showTypeScrollWorking() {ProducerRepository.showTypeScrollWorking();}
+
     public static List<Producer> findAll() {
         return ProducerRepository.findAll();
     }
