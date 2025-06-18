@@ -21,7 +21,6 @@ public class ProducerRepository {
             int rowsAffected = statement.executeUpdate(sql);
             log.info("Database rows affected {}\nInserted producer: '{}'", rowsAffected, producer.getName());
 
-
         } catch (SQLException e) {
             log.error("Error while trying to insert producer '{}'! ", producer.getName());
             throw new RuntimeException(e);
@@ -36,7 +35,6 @@ public class ProducerRepository {
              Statement statement = connection.createStatement()) {
             int rowsAffected = statement.executeUpdate(sql);
             log.info("Database rows affected {}\nDeleted producer with id: '{}'", rowsAffected, id);
-
 
         } catch (SQLException e) {
             //noinspection LoggingSimilarMessage
@@ -53,7 +51,6 @@ public class ProducerRepository {
              Statement statement = connection.createStatement()) {
             int rowsAffected = statement.executeUpdate(sql);
             log.info("Database rows affected {}\nUpdated producer with id: '{}'", rowsAffected, producer.getId());
-
 
         } catch (SQLException e) {
             if (log.isErrorEnabled()) {
@@ -88,8 +85,6 @@ public class ProducerRepository {
                 producerList.add(producer);
             }
 
-
-
         } catch (SQLException e) {
             if (log.isErrorEnabled()) {
                 log.error("Error trying to find the producer '{}' ! ", name);
@@ -98,7 +93,6 @@ public class ProducerRepository {
         }
 
         return producerList;
-
     }
 
     public static void showProducerMetaData() {
@@ -143,17 +137,15 @@ public class ProducerRepository {
             if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
                 log.info("Supports TYPE_SCROLL_INSENSITIVE");
                 if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
-                    log.info("And Supports CONCUR_UPDATABLE");
+                    log.info("And Supports CONCUR_UPDATABLE  ");
                 }
             }
             if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
                 log.info("Supports TYPE_SCROLL_SENSITIVE");
                 if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
-                    log.info("And Supports CONCUR_UPDATABLE");
+                    log.info("And Supports CONCUR_UPDATABLE ");
                 }
             }
-
-
 
         } catch (SQLException e) {
             if (log.isErrorEnabled()) {
@@ -201,7 +193,6 @@ public class ProducerRepository {
 
     public static List<Producer> findByNameAndUpdateToUpperCase(String name) {
 
-        log.info("Finding producer of name '{}'", name);
         String sql = "SELECT * FROM anime_store.producer WHERE name LIKE '%%%s%%';".formatted(name);
 
         List<Producer> producerList = new ArrayList<>();
@@ -221,11 +212,65 @@ public class ProducerRepository {
 
         } catch (SQLException e) {
             if (log.isErrorEnabled()) {
-                log.error("Error trying to find the producer '{}' ! ", name);
+                log.error("Error trying to find the producer with name:  '{}' ! ", name);
             }
             throw new RuntimeException(e);
         }
 
         return producerList;
+    }
+
+    public static List<Producer> findByNameAndInsertWhenNotFound(String name) {
+
+        String sql = "SELECT * FROM anime_store.producer WHERE name LIKE '%%%s%%';".formatted(name);
+
+        List<Producer> producerList = new ArrayList<>();
+
+        try (Connection connection = ConnectionFactory.getConnection();
+             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet rs = statement.executeQuery(sql)) {
+
+            if (rs.next()) return producerList;
+
+            rs.moveToInsertRow();
+            rs.updateString("name", name);
+            rs.insertRow();
+            producerList.add(getProducer(rs));
+
+        } catch (SQLException e) {
+            if (log.isErrorEnabled()) {
+                log.error("Error trying to find the producer with name: '{}' ! ", name);
+            }
+            throw new RuntimeException(e);
+        }
+
+        return producerList;
+    }
+
+    public static void findByNameAndDelete(String name) {
+
+        String sql = "SELECT * FROM anime_store.producer WHERE name LIKE '%%%s%%';".formatted(name);
+
+        try (Connection connection = ConnectionFactory.getConnection();
+             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet rs = statement.executeQuery(sql)) {
+
+            while (rs.next()) {
+                log.info("Deleting '{}'", rs.getString("name"));
+                rs.deleteRow();
+            }
+
+        } catch (SQLException e) {
+            if (log.isErrorEnabled()) {
+                log.error("Error trying to find the producer with name: '{}' ! ", name);
+            }
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static Producer getProducer(ResultSet rs) throws SQLException {
+        rs.beforeFirst();
+        rs.next();
+        return Producer.builder().id(rs.getInt("id")).name(rs.getString("name")).build();
     }
 }

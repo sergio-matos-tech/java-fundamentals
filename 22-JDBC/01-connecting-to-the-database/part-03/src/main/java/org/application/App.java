@@ -55,8 +55,13 @@ public class App {
         // ProducerService.showDriverMetaData();
         // ProducerService.showTypeScrollWorking();
 
-        List<Producer> producers = ProducerService.findByNameAndUpdateToUpperCase("Deen");
-        log.info("Producer:\n'{}'", producers);
+        // List<Producer> producers = ProducerService.findByNameAndUpdateToUpperCase("Deen");
+        // log.info("Producer:\n'{}'", producers);
+
+        // List<Producer> producerList = ProducerService.findByNameAndInsertWhenNotFound("A-1 Pictures");
+        // log.info("Producers found: '{}'", producerList);
+
+        ProducerService.findByNameAndDelete("A-1 Pictures");
 
     }
 }
