@@ -53,8 +53,10 @@ public class App {
 
         // ProducerService.showProducerMetaData();
         // ProducerService.showDriverMetaData();
+        // ProducerService.showTypeScrollWorking();
 
-        ProducerService.showTypeScrollWorking();
+        List<Producer> producers = ProducerService.findByNameAndUpdateToUpperCase("Deen");
+        log.info("Producer:\n'{}'", producers);
 
     }
 }
