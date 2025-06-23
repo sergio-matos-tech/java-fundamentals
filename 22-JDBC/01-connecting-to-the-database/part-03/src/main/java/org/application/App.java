@@ -61,7 +61,10 @@ public class App {
         // List<Producer> producerList = ProducerService.findByNameAndInsertWhenNotFound("A-1 Pictures");
         // log.info("Producers found: '{}'", producerList);
 
-        ProducerService.findByNameAndDelete("A-1 Pictures");
+        List<Producer> producerList = ProducerService.findByNamePreparedStatement("MadHouse");
+        for (Producer producer : producerList) {
+            System.out.println(producer);
+        }
 
     }
 }
