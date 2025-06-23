@@ -298,6 +298,25 @@ public class ProducerRepository {
         return producerList;
     }
 
+    public static void updatePreparedStatement(Producer producer) {
+        log.info(String.format("Updating producer '%s'", producer));
+        String sql = "UPDATE anime_store.producer SET name = ? WHERE id = ?;";
+
+        try (Connection connection = ConnectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, producer.getName());
+            statement.setInt(2, producer.getId());
+
+            int rowsAffected = statement.executeUpdate();
+            log.info(String.format("Updated producer '%d'. Rows affected: %d", producer.getId(), rowsAffected));
+
+        } catch (SQLException e) {
+            log.info(String.format("Error trying to update the producer with id '%d'!", producer.getId()));
+            throw new RuntimeException(e);
+        }
+    }
+
     private static Producer getProducer(ResultSet rs) throws SQLException {
         rs.beforeFirst();
         rs.next();
