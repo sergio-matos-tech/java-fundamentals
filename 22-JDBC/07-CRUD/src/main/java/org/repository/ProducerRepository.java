@@ -322,6 +322,4 @@ public class ProducerRepository {
         rs.next();
         return Producer.builder().id(rs.getInt("id")).name(rs.getString("name")).build();
     }
-
-
 }

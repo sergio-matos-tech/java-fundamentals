@@ -13,14 +13,6 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
 
-        try (Connection connection = ConnectionFactory.getConnection()) {
-            System.out.println("Connection successful!");
-            System.out.println(connection);
-        } catch (RuntimeException | SQLException e) {
-            System.err.println("Failed to connect to the database.");
-            System.out.println(e.getMessage());
-        }
-
 
         /*
 
@@ -66,5 +58,15 @@ public class App {
             System.out.println(producer);
         }
 
+    }
+
+    private static void verifyConnection() {
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            log.info("Connection successful!");
+            System.out.println(connection);
+        } catch (RuntimeException | SQLException e) {
+            log.info("Failed to connect to the database.");
+            System.out.println(e.getMessage());
+        }
     }
 }
