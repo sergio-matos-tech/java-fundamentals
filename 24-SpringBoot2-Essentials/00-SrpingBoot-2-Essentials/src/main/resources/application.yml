@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: 00-SrpingBoot-2-Essentials
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: update
