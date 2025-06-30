@@ -1,15 +1,14 @@
-package org.start;
+// Now in package org.example.anime
+package org.example.anime;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
+// No more @ComponentScan or exclude needed!
 @SpringBootApplication
-@ComponentScan(basePackages = "controller")
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
 }
